@@ -1,0 +1,92 @@
+📝 Devpost Project Description – MED-ALLY: Offline AI Medical Copilot
+❓What is MED-ALLY?
+MED-ALLY is an offline AI-powered medical copilot designed for healthcare workers operating in remote, resource-limited, or disconnected environments.
+
+It allows doctors, paramedics, and field responders to upload or enter medical reports and symptoms, and receive:
+
+Suggested diagnoses
+
+Drug interaction warnings
+
+Recommended clinical actions
+
+A structured summary — without needing the internet or expensive APIs
+
+💡 Inspiration
+In many regions, especially conflict zones or rural clinics, internet access is unreliable or non-existent. Yet decisions must be made — fast.
+Doctors lack immediate access to AI decision-support systems like ChatGPT or clinical databases due to cost, connectivity, and privacy risks.
+
+MED-ALLY was born from the need to give offline, private, low-cost diagnostic support that actually fits in the field.
+
+🛠️ What It Does
+Accepts PDF medical reports, free-text symptoms, or vitals
+
+Extracts key information using NER + local NLP
+
+Uses a local LLM (e.g. Mistral, Mixtral) to reason through the case
+
+Performs drug interaction checks using a static database
+
+Suggests diagnoses and triage level
+
+Generates a structured report with explainable reasoning
+
+All this happens locally on a CPU/GPU device — no cloud, no APIs, no data leakage.
+
+🧱 How We Built It
+Frontend: Streamlit interface for input/output
+
+NLP & NER: spaCy + Transformers for extracting symptoms, conditions, and drugs
+
+LLM: Mistral 7B (via HuggingFace Transformers or Ollama)
+
+Memory: ChromaDB used for embedding and symptom-context retrieval
+
+Medical Logic: Rule-based inference engine + LLM prompting
+
+Drug Checker: CSV/JSON lookup system for interactions
+
+PDF Parsing: pdfplumber used to extract text from reports
+
+🔐 Privacy & Offline Focus
+No data is ever sent to the cloud. All analysis is local.
+This design respects:
+
+Patient confidentiality (HIPAA-friendly)
+
+Remote usage (works without internet)
+
+Zero-cost scaling
+
+🔍 Challenges We Ran Into
+Tuning local LLMs for medical language
+
+Extracting relevant context from unstructured PDFs
+
+Balancing between LLM reasoning and deterministic rule logic
+
+Making the UI simple for non-technical clinicians
+
+🎯 What’s Next
+Support for multilingual use (rural clinics worldwide)
+
+Image support for skin/eye diagnostics (via YOLO or ViT)
+
+TTS/voice interface for hands-free interaction
+
+Integration into mobile apps for offline Android deployments
+
+🙌 Built With
+Python
+
+Streamlit
+
+Transformers
+
+Ollama
+
+spaCy
+
+ChromaDB
+
+pdfplumber
