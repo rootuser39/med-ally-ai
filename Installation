@@ -1,0 +1,4 @@
+git clone https://github.com/YOUR_USERNAME/med-ally-ai.git
+cd med-ally-ai
+pip install -r requirements.txt
+streamlit run app/main.py
